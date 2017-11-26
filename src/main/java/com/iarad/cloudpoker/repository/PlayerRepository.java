@@ -1,14 +1,14 @@
 package com.iarad.cloudpoker.repository;
 
 import com.iarad.cloudpoker.entity.Player;
-import org.springframework.stereotype.Component;
+
+import java.util.List;
 
 /**
  * PlayerRepository
  *
  * @author Stuart MacKenzie
  */
-@Component
 public interface PlayerRepository {
     Player addPlayer(Player player);
 
@@ -18,5 +18,9 @@ public interface PlayerRepository {
 
     Player findOne(long playerId);
 
+    List<Player> getAll();
+
     Player findByEmailAddress(String emailAddress);
+
+    int getPlayerCount();
 }

@@ -3,12 +3,11 @@ package com.iarad.cloudpoker.service;
 import com.iarad.cloudpoker.entity.Player;
 import com.iarad.cloudpoker.repository.PlayerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
-/**
- * PlayerServiceImpl
- *
- * @author Stuart MacKenzie
- */
+import java.util.List;
+
+@Service
 public class PlayerServiceImpl implements PlayerService {
 
     // We're auto-injecting this through the public constructor. Spring take care of it for us.
@@ -22,6 +21,12 @@ public class PlayerServiceImpl implements PlayerService {
     @Override
     public Player getPlayer(long playerId) {
         return playerRepository.findOne(playerId);
+    }
+
+
+    @Override
+    public List<Player> getPlayers() {
+        return playerRepository.getAll();
     }
 
     @Override

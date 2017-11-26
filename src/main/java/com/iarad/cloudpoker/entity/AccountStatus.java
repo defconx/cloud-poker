@@ -7,5 +7,6 @@ package com.iarad.cloudpoker.entity;
  */
 public enum AccountStatus {
     ACTIVE,
+    SUSPENDED,
     INACTIVE
 }

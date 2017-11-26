@@ -1,8 +1,12 @@
 package com.iarad.cloudpoker.entity;
 
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.iarad.cloudpoker.serializer.CustomInstantSerializer;
+import com.iarad.cloudpoker.serializer.CustomLocalDateSerializer;
 import org.springframework.stereotype.Component;
 
 import java.time.Instant;
+import java.time.LocalDate;
 
 /**
  * Player
@@ -13,11 +17,16 @@ import java.time.Instant;
 public class Player {
     long id;
     String username;
+
     String firstName;
     String lastName;
     String emailAddress;
 
-    Instant dateOfBirth;
+
+    @JsonSerialize(using = CustomLocalDateSerializer.class)
+    LocalDate dateOfBirth;
+
+    @JsonSerialize(using = CustomInstantSerializer.class)
     Instant lastLogin;
 
     int winCount = 0;
@@ -65,11 +74,11 @@ public class Player {
         this.emailAddress = emailAddress;
     }
 
-    public Instant getDateOfBirth() {
+    public LocalDate getDateOfBirth() {
         return dateOfBirth;
     }
 
-    public void setDateOfBirth(Instant dateOfBirth) {
+    public void setDateOfBirth(LocalDate dateOfBirth) {
         this.dateOfBirth = dateOfBirth;
     }
 

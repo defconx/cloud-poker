@@ -1,17 +1,19 @@
 package com.iarad.cloudpoker.service;
 
 import com.iarad.cloudpoker.entity.Player;
-import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 /**
  * PlayerService
  *
  * @author Stuart MacKenzie
  */
-@Service
 public interface PlayerService {
 
     Player getPlayer(long playerId);
+
+    List<Player> getPlayers();
 
     Player createPlayer(Player player);
 

@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
+
 /**
  * PlayerController
  *
@@ -27,5 +29,10 @@ public class PlayerController {
     @RequestMapping(value = "/{id}", produces="application/json", method = RequestMethod.GET)
     public Player getPlayer(@PathVariable long id) {
         return playerService.getPlayer(id);
+    }
+
+    @RequestMapping(value = "/", produces="application/json", method = RequestMethod.GET)
+    public List<Player> getPlayers() {
+        return playerService.getPlayers();
     }
 }
