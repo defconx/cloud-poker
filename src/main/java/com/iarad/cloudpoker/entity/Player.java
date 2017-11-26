@@ -34,6 +34,8 @@ public class Player {
 
     AccountStatus accountStatus = AccountStatus.ACTIVE;
 
+    PlayStatus playStatus = PlayStatus.NONE;
+
     public long getId() {
         return id;
     }
@@ -112,5 +114,13 @@ public class Player {
 
     public void setAccountStatus(AccountStatus accountStatus) {
         this.accountStatus = accountStatus;
+    }
+
+    public PlayStatus getPlayStatus() {
+        return playStatus;
+    }
+
+    public void setPlayStatus(PlayStatus playStatus) {
+        this.playStatus = playStatus;
     }
 }
